@@ -5,9 +5,6 @@ const { execSync } = require('child_process');
 var stdin = process.openStdin();
 var data = "";
 stdin.addListener("data", function (d) {
-    // note:  d is an object, and when converted to a string it will
-    // end with a linefeed.  so we (rather crudely) account for that  
-    // with toString() and then substring() 
     data += d.toString()
 });
 
