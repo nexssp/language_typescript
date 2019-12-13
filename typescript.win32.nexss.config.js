@@ -7,8 +7,7 @@ languageConfig.extensions = [".ts"];
 languageConfig.builders = {};
 languageConfig.compilers = {
   "ts-node": {
-    install: "npm install -g ts-node @types/node",
-    // Cpp does not have possibility to compile and run on the fly. We need to save it as a exe file first.
+    install: "npm install -g ts-node @types/node typescript",
     command: "ts-node",
     args: "<file>",
     help: ``
@@ -19,15 +18,13 @@ languageConfig.languagePackageManagers = {
   npm: {
     installation: "installed.",
     messageAfterInstallation: null, // sometimes there is need of add something to the files can be add here eg php for composer.
-    installed: "npm list <args>",
-    search: "npm search <args>",
-    install: "npm install <args>",
-    uninstall: "npm remove <args>",
-    help: "npm help <args>",
+    installed: "npm list",
+    search: "npm search",
+    install: "npm install",
+    uninstall: "npm remove",
+    help: "npm help",
     version: "npm --version",
     init: () => {
-      const { debug } = require("../../lib/log");
-      const d = debug("nexss:config.base");
       if (
         !require("fs").existsSync(
           require("path").join(process.cwd(), "package.json")
@@ -41,7 +38,7 @@ languageConfig.languagePackageManagers = {
     },
     // if command not found in specification
     // run directly on package manager
-    else: "npm <default> <args>"
+    else: "npm"
   }
 };
 
