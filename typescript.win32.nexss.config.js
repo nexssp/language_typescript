@@ -30,10 +30,10 @@ languageConfig.languagePackageManagers = {
           require("path").join(process.cwd(), "package.json")
         )
       ) {
-        require("child_process").execSync("npm init -y");
-        d("initialize npm project.");
+        require("child_process").execSync("npm init -y && npm i @types/node");
+        console.log("initialize npm project.");
       } else {
-        d("npm already initialized.");
+        console.log("npm already initialized.");
       }
     },
     // if command not found in specification
