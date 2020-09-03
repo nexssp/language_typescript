@@ -8,7 +8,6 @@ languageConfig.developers = [
   "https://github.com/nodejs/node/blob/master/AUTHORS",
 ];
 languageConfig.years = ["2012"];
-languageConfig.extensions = [".js"];
 languageConfig.licenses = [
   "Apache License 2.0 https://github.com/microsoft/TypeScript/blob/master/LICENSE.txt",
 ];
