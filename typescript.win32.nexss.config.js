@@ -1,4 +1,7 @@
-let languageConfig = Object.assign({}, require("../config.win32"));
+let languageConfig = Object.assign(
+  {},
+  require(`../config.${process.platform}`)
+);
 languageConfig.title = "Typescript";
 languageConfig.description =
   "TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.";
