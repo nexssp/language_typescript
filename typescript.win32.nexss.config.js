@@ -2,6 +2,12 @@ let languageConfig = Object.assign(
   {},
   require(`../config.${process.platform}`)
 );
+
+const os = require(`${process.env.NEXSS_SRC_PATH}/node_modules/@nexssp/os/`);
+const sudo = os.sudo();
+
+// const distName = os.name();
+
 languageConfig.title = "Typescript";
 languageConfig.description =
   "TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.";
@@ -18,7 +24,8 @@ languageConfig.extensions = [".ts"];
 languageConfig.builders = {};
 languageConfig.compilers = {
   "ts-node": {
-    install: "npm install -g ts-node @types/node typescript",
+    install: `if ! command -v npn &> /dev/null; then ${sudo}apt-get install -y npm; fi
+${sudo}npm install -g ts-node @types/node typescript`,
     command: "ts-node",
     args: "<file>",
     help: ``,
