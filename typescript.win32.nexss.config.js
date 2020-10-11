@@ -24,8 +24,11 @@ languageConfig.extensions = [".ts"];
 languageConfig.builders = {};
 languageConfig.compilers = {
   "ts-node": {
-    install: `if ! command -v npn &> /dev/null; then ${sudo}apt-get install -y npm; fi
-${sudo}npm install -g ts-node @types/node typescript`,
+    install:
+      process.platform !== "win32"
+        ? `if ! command -v npm &> /dev/null; then ${sudo}apt-get install -y npm; fi
+${sudo}npm install -g ts-node @types/node typescript`
+        : `npm install -g ts-node @types/node typescript`,
     command: "ts-node",
     args: "<file>",
     help: ``,
