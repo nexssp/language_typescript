@@ -3,10 +3,7 @@ let languageConfig = Object.assign(
   require(`../config.${process.platform}`)
 );
 
-const os = require(`${process.env.NEXSS_SRC_PATH}/node_modules/@nexssp/os/`);
-const sudo = os.sudo();
-
-// const distName = os.name();
+const sudo = process.sudo;
 
 languageConfig.title = "Typescript";
 languageConfig.description =
