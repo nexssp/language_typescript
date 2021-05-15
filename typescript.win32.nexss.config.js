@@ -27,7 +27,7 @@ languageConfig.compilers = {
 ${sudo}npm install -g ts-node @types/node typescript`
         : `npm install -g ts-node @types/node typescript`,
     command: "ts-node",
-    args: "<file>",
+    args: "--log-error <file>",
     help: ``,
   },
 };
