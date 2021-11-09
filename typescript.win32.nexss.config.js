@@ -41,7 +41,7 @@ languageConfig.languagePackageManagers = {
     install: "npm install",
     uninstall: "npm remove",
     help: "npm help",
-    version: "npm --version",
+    version: "tsc --version",
     init: () => {
       if (
         !require("fs").existsSync(
