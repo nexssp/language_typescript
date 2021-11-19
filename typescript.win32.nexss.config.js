@@ -43,16 +43,30 @@ languageConfig.languagePackageManagers = {
     help: "npm help",
     version: "tsc --version",
     init: () => {
-      if (
-        !require("fs").existsSync(
-          require("path").join(process.cwd(), "package.json")
-        )
-      ) {
-        require("child_process").execSync("npm init -y && npm i @types/node");
-        require("child_process").execSync("tsc --init"); // creates tsconfig.json with all the descriptions
-        console.log("initialize npm project.");
+      const { existsSync } = require("fs");
+      const { join } = require("path");
+      const { execSync } = require("child_process");
+      if (!existsSync(join(process.cwd(), "package.json"))) {
+        console.log("Setup npm project");
+        execSync("npm init -y");
+        console.log("Setup npm project: done.");
       } else {
-        console.log("npm already initialized.");
+        console.log("npm project already initialized.");
+      }
+
+      if (!existsSync(join(process.cwd(), "tsconfig.json"))) {
+        console.log("Setup Typescript..");
+        execSync("tsc --init"); // creates tsconfig.json with all the descriptions
+        execSync("npm i @types/node"); // creates tsconfig.json with all the descriptions
+      } else {
+        console.log("Typescript already initialized.");
+      }
+
+      if (!existsSync(join(process.cwd(), ".gitignore"))) {
+        console.log("Creating .gitignore");
+        execSync("npx gitignore node"); // creates tsconfig.json with all the descriptions
+      } else {
+        console.log(".gitignore is already setup");
       }
     },
     // if command not found in specification
