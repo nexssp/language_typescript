@@ -49,6 +49,7 @@ languageConfig.languagePackageManagers = {
         )
       ) {
         require("child_process").execSync("npm init -y && npm i @types/node");
+        require("child_process").execSync("tsc --init"); // creates tsconfig.json with all the descriptions
         console.log("initialize npm project.");
       } else {
         console.log("npm already initialized.");
