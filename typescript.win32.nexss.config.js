@@ -30,6 +30,13 @@ ${sudo}npm install -g ts-node @types/node typescript`
     args: "--log-error <file>",
     help: ``,
   },
+  deno: {
+    install: "scoop install deno",
+    command: "deno",
+    args: "run <file>",
+    help: ``,
+    templates: "templates_deno",
+  },
 };
 languageConfig.errors = require("./nexss.typescript.errors");
 languageConfig.languagePackageManagers = {
@@ -42,6 +49,7 @@ languageConfig.languagePackageManagers = {
     uninstall: "npm remove",
     help: "npm help",
     version: "tsc --version",
+    dev: "tsc --project tsconfig.json",
     init: () => {
       const { existsSync } = require("fs");
       const { join } = require("path");
