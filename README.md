@@ -4,6 +4,7 @@ To Install Nexss Programmer please go to [Nexss Programmer CLI](https://github.c
 
 ## Links
 
+- Awesome TypeScript - <https://github.com/dzharii/awesome-typescript#awesome-typescript>
 - CheatSheet - <https://rmolinamir.github.io/typescript-cheatsheet/>
 - TypeScript handbook: <https://www.typescriptlang.org/docs/handbook/>
 
